@@ -1,0 +1,16 @@
+<div id="game" class="game-interface">
+  <div v-if="showTitle" class="game-interface__title">
+    {{levelTitle}}
+  </div>
+
+  <div class="game-interface__dialog" v-if="showDialog">
+    <div class="pattern"> </div>
+    <div v-if="dialog === 0" class="box"> Hey! Name's Mix... like in a blender, but way less stabby! </div>
+    <div v-if="dialog === 1" class="box"> Hehe, you know, we're a team! Like peanut butter and... jelly... that can't move on its own! So, any chance you could work your magic on those buttons and get me going? </div>
+    <div v-if="dialog === 2" class="box"> Secret movement instructions incoming! Forwards-y direction? That's the 'D' doohickey! Left-wards wiggles? You're lookin' at the 'A' fella! </div>
+  
+    <div v-if="dialog === 3">We made it! High five... virtually, of course! Now, onwards to the next room of... uh... roominess! Let's go get roomy!</div>
+    <div v-if="dialog === 4"> Door? 'E' it! </div>
+  </div>
+
+</div>

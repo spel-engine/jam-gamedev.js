@@ -1,0 +1,74 @@
+{
+  "imports": {
+    "@spel/core": "../core/src/mod.ts",
+    "@game/entities": "./src/entities/.!entities.ts",
+    "@game/resources": "./src/resources/.!resources.ts",
+    "@game/scripts": "./src/scripts/.!scripts.ts",
+    "@webview/webview": "jsr:@webview/webview@^0.9.0",
+    "three": "npm:three@0.174.0",
+    "simplex": "npm:simplex-noise@4.0.3",
+    "alea": "npm:alea@1.0.1",
+    "gsap": "npm:gsap@3.12.7",
+    "proxyDeep": "npm:proxy-deep@4.0.1",
+    "lodash": "npm:lodash@4.17.15",
+    "@dimforge/rapier3d": "npm:@dimforge/rapier3d@0.15.0",
+    "@dimforge/rapier3d-compat": "npm:@dimforge/rapier3d-compat@0.15.0",
+    "vue": "npm:vue@3.5.12",
+    "tweakpane": "npm:tweakpane@4.0.5",
+    "@tweakpane/core": "npm:@tweakpane/core@2.0.5",
+    "@tweakpane/plugin-essentials": "npm:@tweakpane/plugin-essentials@0.2.1"
+  },
+  "compilerOptions": {
+    "lib": [
+      "deno.ns",
+      "deno.window",
+      "dom",
+      "dom.asynciterable"
+    ]
+  },
+  "tasks": {
+    "build": "deno run -A bundler/runner.ts",
+    "serve": "deno run -A bundler/runner_serve.ts",
+    "run": "deno run --watch -Ar dist/webview.ts",
+
+    "dev": "deno task build & deno task run",
+    
+    "compile": "deno compile -A --include ./dist --output game dist/webview.ts",
+    "compile:windows" :"deno compile -A --include ./dist --output game dist/webview.ts"
+
+  },
+  "lint": {
+    "files": {
+      "include": [
+        "src/",
+        ".bundler/"
+      ]
+    },
+    "rules": {
+      "tags": [
+        "recommended"
+      ],
+      "include": [
+        "ban-untagged-todo"
+      ],
+      "exclude": [
+        "no-unused-vars"
+      ]
+    }
+  },
+  "fmt": {
+    "files": {
+      "include": [
+        "src/",
+        ".bundler/"
+      ]
+    },
+    "options": {
+      "useTabs": false,
+      "lineWidth": 80,
+      "indentWidth": 2,
+      "singleQuote": true,
+      "proseWrap": "preserve"
+    }
+  }
+}

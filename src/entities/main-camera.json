@@ -1,0 +1,18 @@
+{
+  "name": "MainCamera",
+  "components": [
+    {
+      "type": "transform",
+      "position": [0, 3, 4],
+      "rotation": [-5, 0, 0]
+    },
+    {
+      "type": "Camera",
+      "background": "0xffffff"
+    },
+    {
+      "type": "Script",
+      "name": "CameraScript"
+    }
+  ]
+}

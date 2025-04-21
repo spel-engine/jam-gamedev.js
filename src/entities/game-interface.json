@@ -1,0 +1,23 @@
+{
+    "name": "GameInterface",
+    "components": [
+      {
+        "type": "transform"
+      },
+      {
+        "type": "interface",
+        "template": "game",
+        "props": {
+          "title": "Ola",
+          "dialog": 0,
+          "levelTitle": "Protothing 1",
+          "showTitle": true,
+          "showDialog": false
+        }
+      },
+      {
+        "type": "Script",
+        "name": "GameInterfaceScript"
+      }
+    ]
+  }

@@ -1,0 +1,65 @@
+{
+  "name": "Hero",
+  "components": [
+    {
+      "type": "transform",
+      "position": [0, 3, 0],
+      "rotation": [0, 0, 0]
+    },
+    {
+      "type": "Sprite",
+      "source": "character",
+      "width": 64,
+      "height": 64,
+      "pixelPerfect": true,
+      "animation": {
+        "active": true,
+        "tickCount": 0,
+        "ticksPerFrame": 8,
+
+        "sequence": {
+          "name": "idle",
+          "currentFrame": 0
+        },
+        
+        "sequences": {
+          "idle": [0, 7],
+          "walk": [0, 7],
+          "jump": [0, 1],
+          "run": [0, 7],
+          "wait": [0, 5],
+
+          "talk": [0, 6],
+          "fall": [0, 1],
+          "climb": [0, 9],
+          "pick_wall": [0, 9],
+          "use": [0, 12]
+        }
+      }
+    },
+    {
+      "type": "character-controller",
+      "speed": 0.04
+    },
+    {
+      "type": "box-collider",
+      "width": 20,
+      "height": 20,
+      "isSensor": true
+    },
+    {
+      "type": "rigidbody",
+      "lockRotation": true
+    },
+    {
+      "type": "Script",
+      "name": "HeroScript"
+    },
+    {
+      "type": "Audio",
+      "appendTo": "Sprite",
+      "source": ["footstep", "footstepGrass"],
+      "refDistance": 1
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+    "name": "Grass",
+    "components": [
+      {
+        "type": "transform",
+        "position": [0, 0.2, 0],
+        "scale": [0.2,0.2,0.2]
+      },
+      {
+        "type": "Sprite",
+        "source": "grass",
+        "width": 64,
+        "height": 64,
+        "column": 1,
+        "instanced": {
+          "amount": 10,
+          "lock": ["y"]
+        }
+      },
+      {
+        "type": "Script",
+        "name": "GrassScript"
+      }
+    ]
+  }

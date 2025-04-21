@@ -1,0 +1,20 @@
+{
+  "name": "FloorPrototype",
+  "components": [
+    {
+      "type": "transform",
+      "position": [0, 0, 0],
+      "rotation": [0, 0, 0],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    {
+      "type": "Mesh",
+      "name": "Floor_Prototype",
+      "model": "Cube_Prototype_Large_A",
+      "fileType": "obj"
+    },
+    {
+      "type": "box-collider"
+    }
+  ]
+}

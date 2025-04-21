@@ -1,0 +1,17 @@
+{
+  "name": "Exit Door",
+  "components": [
+    {
+      "type": "transform",
+      "position": [0, 0, -1],
+      "rotation": [0, 0, 0],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    {
+      "type": "Mesh",
+      "name": "ExitDoor",
+      "model": "Wall_Doorway",
+      "fileType": "obj"
+    }
+  ]
+}

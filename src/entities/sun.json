@@ -1,0 +1,15 @@
+{
+    "name": "Sun",
+    "components": [
+      {
+        "type": "transform",
+        "position": [0, 50, 0]
+      },
+      {
+        "type": "light",
+        "light": "hemisphere",
+        "intensity": 2.5,
+        "colorHSL": [ 0.1, 1, 0.9 ]
+      }
+    ]
+  }

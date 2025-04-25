@@ -29,6 +29,10 @@
       "name": "Door",
       "model": "Door_B",
       "fileType": "obj"
+    },
+    {
+      "type": "Script",
+      "name": "DoorScript"
     }
   ]
 }

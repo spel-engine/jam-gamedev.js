@@ -11,6 +11,8 @@ type Resources = {
 export const resources: Resources = {
   images: new Map([
     [ "character", "character_sheet.png"],
+    [ "empty", "empty.png"],
+    [ "blue_bottle", "blue_bottle.png"],
   ]),
   audios: new Map([
     ['music', 'music.mp3'],
@@ -27,6 +29,18 @@ export const resources: Resources = {
   
   models: new Map(
     [
+      [
+        "Primitive_Cube_Red",
+        "prototype/Primitive_Cube_Red"
+      ],
+      [
+        "Primitive_Cube_Green",
+        "prototype/Primitive_Cube_Green"
+      ],
+      [
+        "Primitive_Cube_Blue",
+        "prototype/Primitive_Cube_Blue"
+      ],
   [
     "Barrel_A",
     "prototype/Barrel_A"

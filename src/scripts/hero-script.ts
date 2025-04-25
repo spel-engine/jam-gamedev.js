@@ -41,6 +41,11 @@ import {
     private cameraTransform!: Transform;
     
     private speed = 4;
+
+    private activeColor: string = '';
+
+    private currentLevel = 0;
+
     override start(): void {
       const cameraEnt = this.find('MainCamera') as Entity;
       this.cameraTransform = cameraEnt.getComponent(Type.Transform) as Transform;
@@ -73,6 +78,7 @@ import {
       gsap.to(this.cameraTransform.position, {x: this.transform.position.x, duration: .4});
 
       let doubleJumpUsed = false;
+
       if (this.input.getKeyDown(' ') ) {
         if (!this.characterController.grounded && this.doubleJump ) {
           this.jumpVelocity = 0.12;
@@ -83,12 +89,10 @@ import {
         }
       } 
 
-     
-
       if (!this.characterController.grounded && !doubleJumpUsed) {
         // Apply gravity
         this.jumpVelocity -= (9.807 * deltaTime) / 20;
-        gsap.to(this.cameraTransform.position, {y: this.transform.position.y, duration: 1});
+        gsap.to(this.cameraTransform.position, { y: this.transform.position.y + 1, duration: 1});
       }
 
       if (this.characterController.grounded) {
@@ -105,9 +109,10 @@ import {
       } else {
         this.audio.instance?.footstep.stop()
       }
-  
+
       // @ts-ignore
       this.intersectionsWith(this.boxCollider.instance, (other: Entity) => {
+        console.log(other.name);
         if (other.name === 'Door') {
           this.exitReady = true;
           // other.visible = false;
@@ -117,13 +122,25 @@ import {
       });
   
       if (this.input.getKeyDown('e') && this.exitReady) {
-        console.log('ACTION!')
-        this.changeScene('Level 1')
+        console.log('EXIT');
+        this.changeScene(`Level ${this.sceneManager.currentScene?.order! + 2}`)
       }
+
+      this.colorControl();
 
       this.animations()
     }
   
+    colorControl(): void {
+      if (this.input.getKeyPressed('1')) {
+        this.activeColor = 'red';
+      } else if (this.input.getKeyPressed('2')) {
+        this.activeColor = 'green';
+      } else if (this.input.getKeyPressed('3')) {
+        this.activeColor = 'green';
+      } 
+    }
+
     animations(): void {
       const { sequence } = this.sprite.animation!;
 

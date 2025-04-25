@@ -10,6 +10,9 @@ import WallFrontal from './prototype_world/wall-frontal.json' with { type: "json
 import ExitDoor from './prototype_world/exit-door.json' with { type: "json" };
 import Door from './prototype_world/door.json' with { type: "json" };
 import FloorPrototype from './prototype_world/floor-prototype.json' with { type: "json" };
+import FloorBlue from './prototype_world/floor-blue.json' with { type: "json" };
+import FloorRed from './prototype_world/floor-red.json' with { type: "json" };
+import FloorGreen from './prototype_world/floor-green.json' with { type: "json" };
 
 // @ts-ignore
 export const entities: Map<string, any> = new Map([
@@ -19,6 +22,11 @@ export const entities: Map<string, any> = new Map([
   ['WallFrontal', WallFrontal],
   ['Door', Door],
   ['ExitDoor', ExitDoor],
+  ['FloorPrototype', FloorPrototype],
+  ['FloorBlue', FloorBlue],
+  ['FloorRed', FloorRed],
+  ['FloorGreen', FloorGreen],
+  ['FloorPrototype', FloorPrototype],
   ['FloorPrototype', FloorPrototype],
   ['Hero', Hero],
   ['GameInterface', GameInterface],

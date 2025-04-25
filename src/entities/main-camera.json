@@ -3,8 +3,8 @@
   "components": [
     {
       "type": "transform",
-      "position": [0, 3, 4],
-      "rotation": [-5, 0, 0]
+      "position": [0, 7, 5],
+      "rotation": [-15, 0, 0]
     },
     {
       "type": "Camera",

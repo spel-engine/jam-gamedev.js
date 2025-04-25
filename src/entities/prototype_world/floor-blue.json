@@ -1,0 +1,20 @@
+{
+  "name": "FloorBlue",
+  "components": [
+    {
+      "type": "transform",
+      "position": [0, 0, 0],
+      "rotation": [0, 0, 0],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    {
+      "type": "Mesh",
+      "name": "Primitive_Cube_Blue",
+      "model": "Primitive_Cube_Blue",
+      "fileType": "obj"
+    },
+    {
+      "type": "box-collider"
+    }
+  ]
+}

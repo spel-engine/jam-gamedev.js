@@ -1,17 +1,17 @@
 {
-    "name": "Dirlight",
-    "components": [
-      {
-        "type": "transform",
-        "position": [-20, 15, 30],
-        "rotation": [0, -45, 45]
-      },
-      {
-        "type": "light",
-        "light": "directional",
-        "intensity": 0,
-        "multiplyScalar": 0,
-        "castShadow": true
-      }
-    ]
-  }
+  "name": "Dirlight",
+  "components": [
+    {
+      "type": "transform",
+      "position": [-20, 15, 30],
+      "rotation": [0, -45, 45]
+    },
+    {
+      "type": "light",
+      "light": "directional",
+      "intensity": 0,
+      "multiplyScalar": 0,
+      "castShadow": true
+    }
+  ]
+}

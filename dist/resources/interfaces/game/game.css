@@ -1,0 +1,220 @@
+@font-face {
+    font-family: Righteous;
+    src:url("/resources/fonts/Righteous-Regular.ttf");
+}
+
+* {
+    font-family: Righteous;
+}
+
+.game-interface {
+    width: 100%;
+    height: 100%;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+
+.game-interface__dialog {
+    width: 880px;
+    height: 200px;
+    position: absolute;
+    left: calc(50% - 450px);
+    bottom: 20%;
+    font-family: Righteous;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: #e5e5f7;
+    /* opacity: 0.8; */
+    background: radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent) 25px 25px, linear-gradient(#767676 2px, transparent 2px) 0 -1px, linear-gradient(90deg, #767676 2px, #e5e5f7 2px) -1px 0;
+    background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px;
+
+    filter:  drop-shadow(5px 5px 10px #2D2D2D);
+}
+
+.pattern {
+    width: 100%;
+    height: 100%;
+    
+    border-radius: 10px;
+    z-index: -1;
+
+    background: linear-gradient(45deg,rgba(53, 148, 204, 0.7) 0%, rgba(255, 204, 80, 0.7) 100%);
+
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+}
+
+.game-interface__dialog::after {
+    content: '';
+    width: 180px;
+    height: 100px;
+    position: absolute;
+    left: -3px;
+    bottom: -3px;
+
+    border-left: 6px solid rgb(255, 204, 8);
+    border-bottom:6px solid rgb(255, 204, 8);
+
+    border-bottom-left-radius: 10px;
+}
+
+
+.game-interface__dialog::before {
+    content: '';
+    width: 180px;
+    height: 100px;
+    position: absolute;
+    right: -3px;
+    top: -3px;
+
+    border-top: 6px solid rgb(53, 148, 204);
+    border-right: 6px solid rgb(53, 148, 204);
+
+    border-top-right-radius: 10px;
+}
+
+.game-interface__dialog .box {
+    z-index: 2;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-size: 24px;
+    padding: 35px;
+    text-shadow: 2px 2px 3px pink;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.game-interface__wasd {
+    width: 200px;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    font-family: Righteous;
+    display: grid;
+    grid-template-columns: 20px 20px 20px;
+}
+
+.red-bottle {
+    width: 64px;
+    height: 64px;
+    background-image: url("/resources/images/red_bottle.png");
+    background-size: 512px;
+    image-rendering: pixelated;
+    animation: sprite 1s steps(8) infinite;
+}
+
+.green-bottle {
+    width: 64px;
+    height: 64px;
+    background-image: url("/resources/images/green_bottle.png");
+    background-size: 512px;
+    image-rendering: pixelated;
+    animation: sprite 1s steps(8) infinite;
+}
+
+.blue-bottle {
+    width: 64px;
+    height: 64px;
+    background-image: url("/resources/images/blue_bottle.png");
+    background-size: 512px;
+    image-rendering: pixelated;
+    animation: sprite 1s steps(8) infinite;
+}
+
+@keyframes sprite {
+    0% { background-position-x:   0px; }
+  100% { background-position-x: 512px; }
+}
+
+.key-a {
+    width: 64px;
+    height: 64px;
+    background-image: url("/resources/images/keyboard.png");
+    background-size: 512px 912px;
+    image-rendering: pixelated;
+    /* animation: sprite 1s steps(8) infinite; */
+
+    background-position-x: 0;
+    background-position-y: -128px;
+
+    position: absolute;
+    bottom: -30px;
+    right: -20px;
+}
+
+.key-1 {
+    width: 64px;
+    height: 64px;
+    background-image: url("/resources/images/keyboard.png");
+    background-size: 512px 912px;
+    image-rendering: pixelated;
+    /* animation: sprite 1s steps(8) infinite; */
+
+    background-position-x: 0;
+    background-position-y: -912px;
+
+    position: absolute;
+    bottom: -30px;
+    right: -20px;
+}
+
+.key-2 {
+    width: 64px;
+    height: 64px;
+    background-image: url("/resources/images/keyboard.png");
+    background-size: 512px 912px;
+    image-rendering: pixelated;
+    /* animation: sprite 1s steps(8) infinite; */
+
+    background-position-x: -64px;
+    background-position-y: -912px;
+
+    position: absolute;
+    bottom: -30px;
+    right: -20px;
+}
+
+.key-3 {
+    width: 64px;
+    height: 64px;
+    background-image: url("/resources/images/keyboard.png");
+    background-size: 512px 912px;
+    image-rendering: pixelated;
+    /* animation: sprite 1s steps(8) infinite; */
+
+    background-position-x: -128px;
+    background-position-y: -912px;
+
+    position: absolute;
+    bottom: -30px;
+    right: -20px;
+}
+
+.scale-1 {
+    transform: scale(0.6);
+}
+
+.scale-2 {
+    transform: scale(0.7);
+}
+
+.scale-3 {
+    transform: scale(0.8);
+}
+
+
+.bottles_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.bottles_container__item {
+    position: relative;
+}

@@ -1,6 +1,5 @@
 .vscode
 
-dist/resources
-dist/app.js
+
 
 WebView2Loader.dll

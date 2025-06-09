@@ -23,8 +23,19 @@ const GAME = new SPEL({
 GAME.init({ entities, resources, scripts})
 
 GAME.addScene({
-  name: 'Level 1',
+  name: 'MainMenu',
   order: 0,
+  entities: [
+    'MainMenu',
+    'MainCamera',
+  ],
+  scripts: [],
+  childScenes: [],
+});
+
+GAME.addScene({
+  name: 'Level 1',
+  order: 1,
   entities: [
     'GameInterface',
     'MainCamera',
@@ -38,7 +49,7 @@ GAME.addScene({
 
 GAME.addScene({
   name: 'Level 2',
-  order: 1,
+  order: 2,
   entities: [
     'GameInterface',
     'MainCamera',
@@ -54,7 +65,7 @@ GAME.addScene({
 
 GAME.addScene({
   name: 'Level 3',
-  order: 2,
+  order: 3,
   entities: [
     'GameInterface',
     'MainCamera',

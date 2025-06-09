@@ -1,0 +1,19 @@
+{
+    "name": "MainMenu",
+    "components": [
+      {
+        "type": "transform"
+      },
+      {
+        "type": "interface",
+        "template": "main-menu",
+        "props": {
+          "title": "Ola"
+        }
+      },
+      {
+        "type": "Script",
+        "name": "GameInterfaceScript"
+      }
+    ]
+  }

@@ -25,6 +25,10 @@ export const resources: Resources = {
       html: '/game/game.html',
       css: '/game/game.css',
     }],
+    ['main-menu', {
+      html: '/main-menu/main-menu.html',
+      css: '/main-menu/main-menu.css',
+    }],
   ]),
   
   models: new Map(

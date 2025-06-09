@@ -13,10 +13,12 @@ import FloorPrototype from './prototype_world/floor-prototype.json' with { type:
 import FloorBlue from './prototype_world/floor-blue.json' with { type: "json" };
 import FloorRed from './prototype_world/floor-red.json' with { type: "json" };
 import FloorGreen from './prototype_world/floor-green.json' with { type: "json" };
+import MainMenu from './menu/main-menu.json' with { type: "json" };
 
 // @ts-ignore
 export const entities: Map<string, any> = new Map([
   // @ts-ignore
+  ['MainMenu', MainMenu],
   ['MainCamera', MainCamera],
   ['Wall', Wall],
   ['WallFrontal', WallFrontal],

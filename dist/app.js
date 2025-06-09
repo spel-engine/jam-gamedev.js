@@ -90419,6 +90419,7 @@ var InterfaceSystem = class extends AbstractSystem {
             interfaceComponent.instance.style.height = "100%";
             scene.interface.appendChild(interfaceComponent.instance);
             const resource = interfacesLoader.interfaces.get(interfaceComponent.template);
+            console.log("INTERFACE RESOURCE", resource);
             if (resource && !interfaceComponent.loaded) {
               interfaceComponent.props = this.VUE.createApp({
                 template: resource,
@@ -91182,9 +91183,31 @@ var floor_green_default = {
   ]
 };
 
+// src/entities/menu/main-menu.json
+var main_menu_default = {
+  name: "MainMenu",
+  components: [
+    {
+      type: "transform"
+    },
+    {
+      type: "interface",
+      template: "main-menu",
+      props: {
+        title: "Ola"
+      }
+    },
+    {
+      type: "Script",
+      name: "GameInterfaceScript"
+    }
+  ]
+};
+
 // src/entities/entities.ts
 var entities = /* @__PURE__ */ new Map([
   // @ts-ignore
+  ["MainMenu", main_menu_default],
   ["MainCamera", main_camera_default],
   ["Wall", wall_default],
   ["WallFrontal", wall_frontal_default],
@@ -95812,6 +95835,10 @@ var resources = {
     ["game", {
       html: "/game/game.html",
       css: "/game/game.css"
+    }],
+    ["main-menu", {
+      html: "/main-menu/main-menu.html",
+      css: "/main-menu/main-menu.css"
     }]
   ]),
   models: /* @__PURE__ */ new Map(
@@ -96167,8 +96194,18 @@ var GAME = new SPEL({
 });
 GAME.init({ entities, resources, scripts });
 GAME.addScene({
-  name: "Level 1",
+  name: "MainMenu",
   order: 0,
+  entities: [
+    "MainMenu",
+    "MainCamera"
+  ],
+  scripts: [],
+  childScenes: []
+});
+GAME.addScene({
+  name: "Level 1",
+  order: 1,
   entities: [
     "GameInterface",
     "MainCamera",
@@ -96181,7 +96218,7 @@ GAME.addScene({
 });
 GAME.addScene({
   name: "Level 2",
-  order: 1,
+  order: 2,
   entities: [
     "GameInterface",
     "MainCamera",
@@ -96196,7 +96233,7 @@ GAME.addScene({
 });
 GAME.addScene({
   name: "Level 3",
-  order: 2,
+  order: 3,
   entities: [
     "GameInterface",
     "MainCamera",

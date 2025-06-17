@@ -22,16 +22,16 @@ const GAME = new SPEL({
 
 GAME.init({ entities, resources, scripts})
 
-GAME.addScene({
-  name: 'MainMenu',
-  order: 0,
-  entities: [
-    'MainMenu',
-    'MainCamera',
-  ],
-  scripts: [],
-  childScenes: [],
-});
+// GAME.addScene({
+//   name: 'MainMenu',
+//   order: 0,
+//   entities: [
+//     'MainMenu',
+//     'MainCamera',
+//   ],
+//   scripts: [],
+//   childScenes: [],
+// });
 
 GAME.addScene({
   name: 'Level 1',
@@ -81,9 +81,9 @@ GAME.addScene({
 
 // WORKAROUD
 setTimeout(() => {
-  GAME.start();
-},600);
+}, 1000);
 
+  GAME.start();
 // globalThis.addEventListener('keypress', () => {
 
 //   if (!gameRunning) {

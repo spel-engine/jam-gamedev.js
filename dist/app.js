@@ -95527,7 +95527,7 @@ var HeroScript = class extends AbstractScript {
     } else {
       this.characterController.movementDirection.x = 0;
     }
-    gsapWithCSS.to(this.cameraTransform.position, { x: this.transform.position.x, duration: 0.4 });
+    gsapWithCSS.to(this.cameraTransform.position, { x: this.transform.position.x, duration: 0 });
     let doubleJumpUsed = false;
     if (this.input.getKeyDown(" ")) {
       if (!this.characterController.grounded && this.doubleJump) {
@@ -95538,14 +95538,14 @@ var HeroScript = class extends AbstractScript {
         this.jumpVelocity = this.running ? 0.12 + 0.03 : 0.12;
       }
     }
-    if (!this.characterController.grounded && !doubleJumpUsed) {
-      this.jumpVelocity -= 9.807 * deltaTime3 / 20;
-      gsapWithCSS.to(this.cameraTransform.position, { y: this.transform.position.y + 1, duration: 1 });
-    }
     if (this.characterController.grounded) {
       this.doubleJump = true;
     }
     this.characterController.movementDirection.y = this.jumpVelocity;
+    if (!this.characterController.grounded && !doubleJumpUsed) {
+      this.jumpVelocity -= 9.807 * deltaTime3 / 20;
+      gsapWithCSS.to(this.cameraTransform.position, { y: this.transform.position.y + 1, duration: 1 });
+    }
     if (this.characterController.movementDirection.x !== 0 || this.characterController.movementDirection.z !== 0) {
       if (!this.audio.instance?.footstep.isPlaying) {
         this.audio.instance?.footstep.play();
@@ -96194,16 +96194,6 @@ var GAME = new SPEL({
 });
 GAME.init({ entities, resources, scripts });
 GAME.addScene({
-  name: "MainMenu",
-  order: 0,
-  entities: [
-    "MainMenu",
-    "MainCamera"
-  ],
-  scripts: [],
-  childScenes: []
-});
-GAME.addScene({
   name: "Level 1",
   order: 1,
   entities: [
@@ -96247,8 +96237,8 @@ GAME.addScene({
   childScenes: []
 });
 setTimeout(() => {
-  GAME.start();
-}, 600);
+}, 1e3);
+GAME.start();
 /*! Bundled license information:
 
 lodash/lodash.js:

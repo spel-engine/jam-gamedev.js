@@ -75,7 +75,7 @@ import {
         this.characterController.movementDirection.x = 0;
       }
 
-      gsap.to(this.cameraTransform.position, {x: this.transform.position.x, duration: .4});
+      gsap.to(this.cameraTransform.position, {x: this.transform.position.x, duration: 0});
 
       let doubleJumpUsed = false;
 
@@ -89,11 +89,6 @@ import {
         }
       } 
 
-      if (!this.characterController.grounded && !doubleJumpUsed) {
-        // Apply gravity
-        this.jumpVelocity -= (9.807 * deltaTime) / 20;
-        gsap.to(this.cameraTransform.position, { y: this.transform.position.y + 1, duration: 1});
-      }
 
       if (this.characterController.grounded) {
         this.doubleJump = true;
@@ -101,6 +96,11 @@ import {
 
       this.characterController.movementDirection.y = this.jumpVelocity;
 
+      if (!this.characterController.grounded && !doubleJumpUsed) {
+        // Apply gravity
+        this.jumpVelocity -= (9.807 * deltaTime) / 20;
+        gsap.to(this.cameraTransform.position, { y: this.transform.position.y + 1, duration: 1});
+      }
       
       if (this.characterController.movementDirection.x !== 0 || this.characterController.movementDirection.z !== 0 ) {
         if (!this.audio.instance?.footstep.isPlaying) {

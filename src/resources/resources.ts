@@ -10,7 +10,7 @@ type Resources = {
 
 export const resources: Resources = {
   images: new Map([
-    [ "character", "character_sheet.png"],
+    [ "character", "character_sheet_2.png"],
     [ "empty", "empty.png"],
     [ "blue_bottle", "blue_bottle.png"],
   ]),

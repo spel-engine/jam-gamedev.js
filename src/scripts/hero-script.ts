@@ -46,6 +46,7 @@ import {
 
     private currentLevel = 0;
 
+    private flipX = false;
     override start(): void {
       const cameraEnt = this.find('MainCamera') as Entity;
       this.cameraTransform = cameraEnt.getComponent(Type.Transform) as Transform;
@@ -66,10 +67,10 @@ import {
 
       // console.log(this.transform.position.y)
       if (this.input.getKeyPressed('a')) {
-        this.sprite.flipX = true;
+        this.flipX = true;
         this.characterController.movementDirection.x = -(this.speed + this.runSpeed)  * deltaTime;
      } else if (this.input.getKeyPressed('d')) {
-        this.sprite.flipX = false;
+        this.flipX = false;
         this.characterController.movementDirection.x = (this.speed + this.runSpeed) * deltaTime;
       } else {
         this.characterController.movementDirection.x = 0;
@@ -145,24 +146,20 @@ import {
       const { sequence } = this.sprite.animation!;
 
       if (this.input.getKeyPressed(' ') && !this.characterController.grounded){
-        sequence.name = 'jump'; 
+        sequence.name =  this.flipX ? 'jump_l' : 'jump'; 
       } else if (this.input.getKeyPressed('d') && this.characterController.grounded){
         sequence.name = this.running ? 'run' : 'walk';
       } else if (this.input.getKeyPressed('a') && this.characterController.grounded) {
-        sequence.name = this.running ? 'run' : 'walk';
+        sequence.name = this.running ? 'run_l' : 'walk_l';
       } else if (this.input.getKeyPressed('w')){
         sequence.name = 'climb'; 
       } else if (this.characterController.grounded) {
-        sequence.name = 'idle';
+        sequence.name = this.flipX ? 'idle_l' : 'idle';
       }
       
   
-      if (this.input.getKeyUp('a')){
-        sequence.name = 'idle';
-      }
-  
-      if (this.input.getKeyUp('d')){
-        sequence.name = 'idle';
+      if (this.input.getKeyUp('a') || this.input.getKeyUp('d')){
+        sequence.name = this.flipX ? 'idle_l' : 'idle';
       }
       
     }

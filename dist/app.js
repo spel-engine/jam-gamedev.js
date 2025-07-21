@@ -90887,7 +90887,12 @@ var hero_default = {
           fall: [0, 1],
           climb: [0, 9],
           pick_wall: [0, 9],
-          use: [0, 12]
+          use: [0, 12],
+          idle_l: [0, 7],
+          walk_l: [0, 7],
+          jump_l: [0, 1],
+          run_l: [0, 7],
+          wait_l: [0, 5]
         }
       }
     },
@@ -95506,6 +95511,7 @@ var HeroScript = class extends AbstractScript {
   speed = 4;
   activeColor = "";
   currentLevel = 0;
+  flipX = false;
   start() {
     const cameraEnt = this.find("MainCamera");
     this.cameraTransform = cameraEnt.getComponent("transform" /* Transform */);
@@ -95519,10 +95525,10 @@ var HeroScript = class extends AbstractScript {
       this.runSpeed = 0;
     }
     if (this.input.getKeyPressed("a")) {
-      this.sprite.flipX = true;
+      this.flipX = true;
       this.characterController.movementDirection.x = -(this.speed + this.runSpeed) * deltaTime3;
     } else if (this.input.getKeyPressed("d")) {
-      this.sprite.flipX = false;
+      this.flipX = false;
       this.characterController.movementDirection.x = (this.speed + this.runSpeed) * deltaTime3;
     } else {
       this.characterController.movementDirection.x = 0;
@@ -95578,21 +95584,18 @@ var HeroScript = class extends AbstractScript {
   animations() {
     const { sequence } = this.sprite.animation;
     if (this.input.getKeyPressed(" ") && !this.characterController.grounded) {
-      sequence.name = "jump";
+      sequence.name = this.flipX ? "jump_l" : "jump";
     } else if (this.input.getKeyPressed("d") && this.characterController.grounded) {
       sequence.name = this.running ? "run" : "walk";
     } else if (this.input.getKeyPressed("a") && this.characterController.grounded) {
-      sequence.name = this.running ? "run" : "walk";
+      sequence.name = this.running ? "run_l" : "walk_l";
     } else if (this.input.getKeyPressed("w")) {
       sequence.name = "climb";
     } else if (this.characterController.grounded) {
-      sequence.name = "idle";
+      sequence.name = this.flipX ? "idle_l" : "idle";
     }
-    if (this.input.getKeyUp("a")) {
-      sequence.name = "idle";
-    }
-    if (this.input.getKeyUp("d")) {
-      sequence.name = "idle";
+    if (this.input.getKeyUp("a") || this.input.getKeyUp("d")) {
+      sequence.name = this.flipX ? "idle_l" : "idle";
     }
   }
 };
@@ -95821,7 +95824,7 @@ var scripts = /* @__PURE__ */ new Map([
 // src/resources/resources.ts
 var resources = {
   images: /* @__PURE__ */ new Map([
-    ["character", "character_sheet.png"],
+    ["character", "character_sheet_2.png"],
     ["empty", "empty.png"],
     ["blue_bottle", "blue_bottle.png"]
   ]),
